@@ -1,0 +1,16 @@
+pipeline{
+  agent any
+  
+   stages{
+      stage("Git Checkout"){
+        steps{
+          git credentialsId: 'github', url: 'https://github.com/nagarjuna1207/DevOps-Demo-WebApp'
+        }
+      }
+      stage("Maven Build"){
+        steps{
+          sh "mvn clean package"
+        }
+      }
+   }
+}
